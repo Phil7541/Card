@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Phillip Swann | Embedded Systems Developer</title>
+    <meta name="description" content="Junior developer focused on embedded systems and low-level programming. Projects include ESP32 sensor hubs, Raspberry Pi dashboards, and custom e-paper hardware.">
+    <meta name="author" content="Phillip Swann">
+    <meta property="og:title" content="Phillip Swann | Embedded Systems Developer">
+    <meta property="og:description" content="Embedded systems and low-level programming projects.">
+    <meta property="og:image" content="assets/images/preview.png"><!-- TODO: Add properly -->
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <a href="#main" class="skip-to-content">Skip To Content</a>
+      <nav :class="!navbarVisible ? 'hidden' : 'shown'">
+        <h1>Phillip Swann</h1>
+      </nav>
+      <header>
+        <div class="header-content">
+          <h1>Phillip Swann</h1>
+          <h2>Junior Developer</h2>
+          <h3>Embedded systems & low-level tinkering</h3>
+        </div>
+        <div class="header-links">
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="https://github.com/Phil7541" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </header>
+      <main id="main">
+        <section id="projects">
+          <h1>Projects</h1>
+          <hr>
+          <div v-for="project in projects" :key="project.name" class="project-card">
+            <div>
+              <img v-if="project.image?.url" :src="project.image.url" :alt="project.image.altText || project.name">
+            </div>
+            <div>
+              <h2>{{ project.name }}</h2>
+              <p>{{ project.description }}</p>
+              <ul>
+                <li v-for="point in project.keyPoints">{{ point }}</li>
+              </ul>
+              <a v-if="project.link" :href="project.link" target="_blank" rel="noopener">View Code</a>
+              <span v-else class="coming-soon">Coming Soon</span>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section id="contact">
+          <h1>Contact</h1>
+          <hr>
+          <div class="contact-card">
+            <h2>Open to opportunities and collaborations</h2>
+            <div class="contact-links">
+              <a href="https://www.linkedin.com/in/phillip-swann-1b5216351/" target="_blank" rel="noopener" class="icon" @mouseenter="linkedinIcon = 'assets/icons/linkedin-red.png'" @mouseleave="linkedinIcon = 'assets/icons/linkedin-yellow.png'"><img :src="linkedinIcon"><p>Phillip Swann</p></a>
+              <a href="https://github.com/Phil7541" target="_blank" rel="noopener" class="icon" @mouseenter="githubIcon = 'assets/icons/github-red.png'" @mouseleave="githubIcon = 'assets/icons/github-yellow.png'"><img :src="githubIcon"><p>Phil7541</p></a>
+              <a href="mailto:phillipswann40@gmail.com" rel="noopener" class="icon" @mouseenter="emailIcon = 'assets/icons/email-red.png'" @mouseleave="emailIcon = 'assets/icons/email-yellow.png'"><img :src="emailIcon"><p>phillipswann40@gmail.com</p></a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Phillip Swann &copy 2026</p>
+        <a href="assets/files/Phillip Swann CV.pdf" target="_blank" rel="noopener">CV</a>
+      </footer>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
