@@ -78,9 +78,7 @@ python -m http.server
 project-root/
 ├── assets/
 │   ├── files/
-│   ├── fonts/
 │   ├── icons/
-│   ├── images/
 │   └── svg/
 ├── index.html
 ├── main.css
